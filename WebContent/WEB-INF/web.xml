@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://java.sun.com/xml/ns/javaee"
+ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+ id="WebApp_ID" version="3.0">
+ 
+ <!--  <display-name>ServletTestings</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list> -->
+  
+  <!-- Every servlet needs class and mapping, here the pattern belongs to form action-->
+  <servlet>
+	  <servlet-name>Hello</servlet-name>
+	  <servlet-class>com.servlets.AddServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+	  <servlet-name>Hello</servlet-name>
+	  <url-pattern>/add</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Mapping the SquareServlet to web.xml and referring using "square" -->
+  <servlet>
+	  <servlet-name>SquareServlet</servlet-name>
+	  <servlet-class>com.servlets.SquareServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+	  <servlet-name>SquareServlet</servlet-name>
+	  <url-pattern>/square</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Mapping the SessionServlet to web.xml and referring using "session" from form-->
+  <servlet>
+	  <servlet-name>SesServlet</servlet-name>
+	  <servlet-class>com.SpecialServlets.SessionServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+	  <servlet-name>SesServlet</servlet-name>
+	  <url-pattern>/session</url-pattern>
+  </servlet-mapping>
+  
+    <!-- Mapping the SessionCookieServlet to web.xml and referring using "square" -->
+  <servlet>
+	  <servlet-name>CookieServlet</servlet-name>
+	  <servlet-class>com.SpecialServlets.SessionCookieServlet</servlet-class>
+	  
+	   
+	  
+  </servlet>
+  
+  <servlet-mapping>
+	  <servlet-name>CookieServlet</servlet-name>
+	  <url-pattern>/getsession</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>ServletConfigServlet</servlet-name>
+  	<servlet-class>com.SpecialServlets.IamServletContext</servlet-class>
+  	
+  	<!-- Use of ServletConfig / Can be used only under <servlet> -->
+	  <init-param>
+	  	<param-name>age</param-name>
+		<param-value>28</param-value>
+	  </init-param>
+  	
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ServletConfigServlet</servlet-name>
+  	<url-pattern>/a</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Usage of ServletContext  -->
+  <context-param>
+	  	<param-name>name</param-name>
+	  	<param-value>Rahul</param-value>
+  </context-param>
+  
+   <context-param>
+	  	<param-name>age</param-name>
+	  	<param-value>24</param-value>
+  </context-param>
+  
+ 
+</web-app>

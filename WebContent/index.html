@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+<link rel="stylesheet" href="CSS/index.css"></link>
+<body>
+	<h1>Testing the servlets</h1>
+	<form action="add" method="post">
+	<div class ="input-section" id="sec1">
+		<label for="num1">Enter the first number</label>
+		<input type="number"  id="num1"  name="first"  required="required">
+		
+		<label for="num2">Enter the second number</label>
+		<input type="number"  id="num2"  name="second"  required="required">
+		
+		<button type="submit" value="AddJ" id="add-j">JavaScript Add</button>
+		<button type="submit" value="AddS" id="add-s">Servlet Add</button>
+	
+		<p id = "text"></p>
+		</div>
+	</form>
+	
+	<form action="session" method="get">
+		<div class="input-section" id="sec2">
+			<label for="num1">Enter your payment method</label>
+			<select  id="num1"  name="payment"  required="required">
+				<optgroup id="pay" label="--Gateways--">
+					<option value="Paytm">Paytm</option>
+					<option value="Phonepe">Phonepe</option>
+					<option value="GPay">Gpay</option>
+					<option value="NetBanking">NetBanking</option>
+				</optgroup>
+			</select>
+		
+			<label for="num2">Enter the amount</label>
+			<input type="number"  id="num2"  name="amount"  required="required">
+		
+			<button type="submit" value="submit" id="submit">Click to Pay</button>
+			
+			<a href = 'a'  id = "cc">To Servlet</a>
+			
+		</div>
+	</form>
+	
+</body>
+<script type="text/javascript" >
+
+console.log("Is it printing?");
+	document.querySelector('#add-j').onclick = function add(event)
+	{
+		event.preventDefault();
+		let num1 = parseInt(document.getElementById('num1').value);
+		let num2 = parseInt(document.getElementById('num2').value);
+		let res = document.querySelector('#text');
+		
+		res.innerText = "Sum is : " + (num1 + num2);
+	}
+
+</script>
+</html>
