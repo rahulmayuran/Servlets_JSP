@@ -1,4 +1,4 @@
-# Servlets_JSP
+# Working with Servlets
 A repository with possible examples of servlets, JSP
 1. Understanding the XML tags to map a servlet to form action, anchor tag etc
 2. ServletConfig to be used to set initial parameters for a particular servlet
