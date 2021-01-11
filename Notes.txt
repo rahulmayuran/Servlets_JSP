@@ -56,3 +56,6 @@ JSP- Has implicit objects
 	
 To handle exceptions in JSP
 	• We can use try and catch block as we use in Servlets in the JSP too, But it's better to forward to error.jsp. So we use errorPage and isErrorPage attributes respectively.
+	
+For JSTL Tags
+To use core and sql tags, you need jstl 1.2 jar file added to lib folder and to the build path.
