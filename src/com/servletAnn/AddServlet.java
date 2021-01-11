@@ -3,6 +3,7 @@ package com.servletAnn;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,9 +16,14 @@ public class AddServlet extends HttpServlet {
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		PrintWriter out = response.getWriter();
-		out.println("Hi from Servlet");
-		out.print("<a href=\"entry.jsp\" value =\"input\">foward to JSP</a>");
+		//getting the uname from jsp as parameter,
+		String username = (String) request.getParameter("uname");
+		//setting it to label attribute
+		request.setAttribute("label", username);
+		
+		RequestDispatcher rdisp = request.getRequestDispatcher("entry.jsp");
+		rdisp.forward(request, response);
+
 	}
 
 }

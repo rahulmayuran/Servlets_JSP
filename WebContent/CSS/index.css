@@ -12,7 +12,6 @@ h1{
 	border : solid 1px white;
 	text-decoration: none;
 	margin-left : 4em;
-	background-color: lightgreen;
 	padding : 3px;
 	color: black;
 	cursor: pointer;
@@ -23,17 +22,23 @@ h1{
 .input-section
 {
 	font-family : sans-serif;
-	background-color : lightgrey;
+	background-color : lightblue;
 	margin-left : 2em;
-	border : 1px outset black;
-	width: 400px;
+	border : 10px outset lightblue;
+	width: 800px;
 	padding: 5px;
-}
-#num1,#num2,label{
+}label{
 	margin-left : 2em;
-	display : block;
 	padding: 1px;
 	font-size: 14px;
+	font-weight: bolder;
+	cursor : progress;
+}
+#num1,#num2,#uid{
+	margin-left : 2em;
+	display:block;
+	padding: 1px;
+	font-size: 20px;
 	font-weight: bolder;
 	cursor : pointer;
 }
@@ -57,3 +62,4 @@ button{
 	margin-left: 2em;
 	margin-top: 1em;
 }
+
