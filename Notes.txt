@@ -58,4 +58,27 @@ To handle exceptions in JSP
 	• We can use try and catch block as we use in Servlets in the JSP too, But it's better to forward to error.jsp. So we use errorPage and isErrorPage attributes respectively.
 	
 For JSTL Tags
-To use core and sql tags, you need jstl 1.2 jar file added to lib folder and to the build path.
+
+->To use core and sql tags, you need jstl 1.2 jar file added to lib folder and to the build path.
+->To connect the SSMS database, Create a Database and a table along with an authenticated user, Then use sqljdbc4-2.0.jar > lib > build path, Then inside the JSP, use the taglib to set prefix as sql and uri that points to jsp/jstl/sql and , 
+->set the datasource using 
+		<sql:setDataSource var="db" 
+		driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+		url="jdbc:sqlserver://localhost:1433;databaseName=ServletJSTLTagTest" 
+		user="jstl" 
+		password="jstl"/>
+-> when you want to do DML operations, then you have to refer the Datasource variable
+		<sql:update dataSource="${db}" var="anyVar">
+			Update dbo.JSTLEmployee set age=37 where name='Navin'
+		</sql:update>
+-> When you want to do DQL operations, then also refer to the datasource variable
+		<sql:query var="resultset" dataSource="${db}" > 
+			Select * from dbo.JSTLEmployee
+		</sql:query>
+-> To display it in the UI, you need to iterate the rows of the resultset which is used in DQL operation using ${resultset.rows}
+and use a variable to traverse through the columns of the DB like 
+<c:forEach items="${resultset.rows}" var="employees">
+			<c:out value="${employees.name}"/>
+			<c:out value="${employees.age}"/>
+			<c:out value="${employees.role}"/>
+		 </c:forEach>
