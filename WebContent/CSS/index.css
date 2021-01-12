@@ -62,4 +62,19 @@ button{
 	margin-left: 2em;
 	margin-top: 1em;
 }
+table {
+	border : 1px solid black;
+	background-color: black;
+	color:white;
+}
+th{
+	background-color: lightgray;
+	color:black;
+	padding : 3px;
+}td{
+	padding : 3px;
+	border : 2px black double;
+	background-color: white;
+	color:black;
+}
 
