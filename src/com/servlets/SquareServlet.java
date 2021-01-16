@@ -24,14 +24,18 @@ public class SquareServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		/*we used an int object to retreive the object set in AddServlet as it is Object type*/
 		int square = (int) request.getAttribute("toBeSquared");
 		int squaredResult = square*square;
 		PrintWriter output = response.getWriter();
-		output.println("Squared value of the AddServlet parameter for number "+ square + " is "+ squaredResult);
+		output.println("<br/>Squared value of the AddServlet parameter for number "+ square + " is "+ squaredResult);
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		/*This get Parameter works by getting the parameter from the get method
+		 * of the AddServlet , where we have used send redirect and did URL rewriting*/
 		int squared = Integer.parseInt(req.getParameter("n"));
 		squared = squared * squared;
 		

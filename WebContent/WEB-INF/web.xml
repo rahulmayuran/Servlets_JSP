@@ -14,7 +14,6 @@ xmlns="http://java.sun.com/xml/ns/javaee"
 	  <servlet-name>Hello</servlet-name>
 	  <servlet-class>com.servlets.AddServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
 	  <servlet-name>Hello</servlet-name>
 	  <url-pattern>/add</url-pattern>
@@ -25,7 +24,6 @@ xmlns="http://java.sun.com/xml/ns/javaee"
 	  <servlet-name>SquareServlet</servlet-name>
 	  <servlet-class>com.servlets.SquareServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
 	  <servlet-name>SquareServlet</servlet-name>
 	  <url-pattern>/square</url-pattern>
@@ -36,7 +34,6 @@ xmlns="http://java.sun.com/xml/ns/javaee"
 	  <servlet-name>SesServlet</servlet-name>
 	  <servlet-class>com.SpecialServlets.SessionServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
 	  <servlet-name>SesServlet</servlet-name>
 	  <url-pattern>/session</url-pattern>
@@ -46,40 +43,32 @@ xmlns="http://java.sun.com/xml/ns/javaee"
   <servlet>
 	  <servlet-name>CookieServlet</servlet-name>
 	  <servlet-class>com.SpecialServlets.SessionCookieServlet</servlet-class>
-	  
-	   
-	  
   </servlet>
-  
   <servlet-mapping>
 	  <servlet-name>CookieServlet</servlet-name>
 	  <url-pattern>/getsession</url-pattern>
   </servlet-mapping>
   
-  
+  <!-- Mapping the IamServletContext to web.xml and referring using "a" -->
   <servlet>
   	<servlet-name>ServletConfigServlet</servlet-name>
   	<servlet-class>com.SpecialServlets.IamServletContext</servlet-class>
-  	
-  	<!-- Use of ServletConfig / Can be used only under <servlet> -->
+  	<!-- Use of ServletConfig / Can be used only under servlet tag -->
 	  <init-param>
 	  	<param-name>age</param-name>
 		<param-value>28</param-value>
 	  </init-param>
-  	
   </servlet>
-  
   <servlet-mapping>
   	<servlet-name>ServletConfigServlet</servlet-name>
   	<url-pattern>/a</url-pattern>
   </servlet-mapping>
   
-  <!-- Usage of ServletContext  -->
+  <!-- Usage of ServletContext can affect all the servlets -->
   <context-param>
 	  	<param-name>name</param-name>
 	  	<param-value>Rahul</param-value>
   </context-param>
-  
    <context-param>
 	  	<param-name>age</param-name>
 	  	<param-value>24</param-value>
