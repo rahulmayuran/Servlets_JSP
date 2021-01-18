@@ -11,6 +11,10 @@
 <link rel="stylesheet" href="CSS/index.css"></link>
 <body>
 
+<!-- Function tags are accessed using the taglib uri and a prefix, almost similar
+operations are done in string, like converting a string to Uppercase/lowercase, trimming the spaces in front & back, 
+length, checking the index of fragment and much more -->
+
 <h1>Playing with Function tags</h1>
 <div class="input-section">
 
@@ -34,7 +38,8 @@
 	${fn:length(splitter)} :  ${splitter}
 </x:forEach><br/>
 
-<x:out value="Ending string check-> ${fn:endsWith(coreVar,'learner ')}  ${fn:indexOf(coreVar,'a') }"/>
+<x:out value="Ending string check-> ${fn:endsWith(coreVar,'learner ')} where index of 
+letter 'a' is ->${fn:indexOf(coreVar,'a') }"/>
 
 </div>
 	
