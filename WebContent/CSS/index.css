@@ -1,0 +1,80 @@
+@charset "ISO-8859-1";
+* {
+	padding: 0px;
+	margin : 0px;
+}
+h1{
+	padding-bottom : 1em;
+	font-family: sans-serif;
+	font-weight: bold;
+}
+#cc{
+	border : solid 1px white;
+	text-decoration: none;
+	margin-left : 4em;
+	padding : 3px;
+	color: black;
+	cursor: pointer;
+}
+#sec2{
+	margin-top: 1em;
+}
+.input-section
+{
+	font-family : sans-serif;
+	background-color : lightblue;
+	margin-left : 2em;
+	border : 10px outset lightgreen;
+	width: 800px;
+	padding: 5px;
+}label{
+	margin-left : 2em;
+	padding: 1px;
+	font-size: 14px;
+	font-weight: bolder;
+	cursor : progress;
+}
+#num1,#num2,#uid{
+	margin-left : 2em;
+	display:block;
+	padding: 1px;
+	font-size: 20px;
+	font-weight: bolder;
+	cursor : pointer;
+}
+#pay
+{
+	font-weight : bold;
+	background-color: blue;
+	color: white;
+}
+select>optgroup>option
+{
+	background-color: white;
+	color:black;
+}
+button{
+	background-color: lightgreen;
+	padding: 5px;
+	border-radius: 3px;
+	display: inline;
+	font-weight: bold;
+	margin-left: 2em;
+	margin-top: 1em;
+}
+table {
+	border : 1px solid black;
+	background-color: black;
+	color:white;
+}
+th{
+	background-color: lightgray;
+	color:black;
+	padding : 3px;
+}td{
+	padding : 3px;
+	border : 2px black double;
+	background-color: white;
+	color:black;
+}
+
