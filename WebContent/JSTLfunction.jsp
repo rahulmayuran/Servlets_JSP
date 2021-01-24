@@ -16,30 +16,68 @@ operations are done in string, like converting a string to Uppercase/lowercase, 
 length, checking the index of fragment and much more -->
 
 <h1>Playing with Function tags</h1>
+
 <div class="input-section">
 
-<x:out value="Hi ${name}, Welcome to Function tags"/>
+<table>
 
-<x:set var="coreVar" value=" I'm still a learner " scope="page"/><br/>
-<x:out value=" The variable set using core tag -> '${coreVar}'"/><br/>
+<tr><td><x:out value="Hi ${name}, Welcome to Function tags"/></td></tr>
 
-<x:out value="The length of string is ${fn:length(coreVar)}"/><br/>
+<x:set var="coreVar" value=" I'm still a learner " scope="page"/>
 
-<x:out value="After trimming the string -> '${fn:trim(coreVar)}' with length ${fn:length(fn:trim(coreVar))}"/><br/>
+<tr><td><x:out value=" The variable set using core tag -> '${coreVar}'"/></td></tr>
 
-<x:if test="${fn:contains(coreVar,'still')}">
+<tr><td><x:out value="The length of string is ${fn:length(coreVar)}"/></td></tr>
+
+<tr><td><x:out value="After trimming the string -> '${fn:trim(coreVar)}' with length ${fn:length(fn:trim(coreVar))}"/></td></tr>
+
+<tr><td><x:if test="${fn:contains(coreVar,'still')}">
 	<x:out value="Inside the core if tag, passing if test"/>
 	<x:out value="The if test for function containing fragment of '${coreVar}' 
 	is ${fn:contains(coreVar,'still')}"/>
-</x:if>
+</x:if></td></tr>
 
+<tr><td><x:set var="UpperVar" value=" I'M STILL A LEARNER " scope="session"/>
+<x:choose>
+<x:when test="${fn:toUpperCase(coreVar) == UpperVar}">
+		<x:out value="Inside when tag, The variable set with Uppercase and function tag validation matched"></x:out>
+	</x:when>
+	<x:otherwise>
+		<x:out value="The Uppercase convertion had some issues"></x:out>
+	</x:otherwise>
+</x:choose></td></tr>
+
+
+<tr><td><x:choose>
+	<x:when test="${fn:indexOf(coreVar, 'a') == 11}">
+		<x:out value="Inside the when tag,The index of a in the set variable with the condition is true"></x:out>
+	</x:when>
+	<x:otherwise>
+		<x:out value="The index is not equal"></x:out>
+	</x:otherwise>
+</x:choose></td></tr>
+
+<tr><td><x:out value="Ending string check-> ${fn:endsWith(coreVar,'learner ')} where index of 
+letter 'a' is ->${fn:indexOf(coreVar,'a') }"/></td></tr>
+
+</table>
+
+<br/>
+
+<table>
+	<tr>
+		<th>Length</th>
+		<th>String value</th>
+	</tr>
 <x:forEach items="${fn:split(coreVar, ' ')}" var="splitter">
-	<br/>
-	${fn:length(splitter)} :  ${splitter}
-</x:forEach><br/>
+	<tr>
+		<td>${fn:length(splitter)}</td>
+		<td>${splitter}</td>	
+	</tr>
+</x:forEach>
+</table>
 
-<x:out value="Ending string check-> ${fn:endsWith(coreVar,'learner ')} where index of 
-letter 'a' is ->${fn:indexOf(coreVar,'a') }"/>
+
 
 </div>
 	

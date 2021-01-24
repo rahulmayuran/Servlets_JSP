@@ -73,8 +73,9 @@ th{
 	padding : 3px;
 }td{
 	padding : 3px;
-	border : 2px black double;
+	border : 1px black solid;
 	background-color: white;
 	color:black;
 }
+body
 
