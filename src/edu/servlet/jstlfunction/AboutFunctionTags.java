@@ -22,6 +22,8 @@ public class AboutFunctionTags extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		int id = Integer.parseInt(request.getParameter("id"));
+		
 		String name = request.getParameter("name");
 		request.setAttribute("name", name);
 		

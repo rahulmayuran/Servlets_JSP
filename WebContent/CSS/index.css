@@ -24,19 +24,22 @@ h1{
 	font-family : sans-serif;
 	background-color : lightblue;
 	margin-left : 2em;
+	display : block;
 	border : 10px outset lightgreen;
-	width: 800px;
+	width: 700px;
 	padding: 5px;
 }label{
 	margin-left : 2em;
+	display : inline;
 	padding: 1px;
 	font-size: 14px;
 	font-weight: bolder;
 	cursor : progress;
+	width : 300px;
 }
 #num1,#num2,#uid{
 	margin-left : 2em;
-	display:block;
+	display: inline-block;
 	padding: 1px;
 	font-size: 20px;
 	font-weight: bolder;
@@ -48,16 +51,11 @@ h1{
 	background-color: blue;
 	color: white;
 }
-select>optgroup>option
-{
-	background-color: white;
-	color:black;
-}
 button{
 	background-color: lightgreen;
 	padding: 5px;
 	border-radius: 3px;
-	display: inline;
+	display: block;
 	font-weight: bold;
 	margin-left: 2em;
 	margin-top: 1em;
