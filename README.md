@@ -4,35 +4,35 @@
 	3. We can have multiple servlet instance 
 
 Steps
-	• Client(user) hits a button, request goes to server.
-	• Server needs to accept it using web.xml(DD),
-	• Process the request(using Servlet) and send back the response using a servlet
+	1. Client(user) hits a button, request goes to server.
+	2. Server needs to accept it using web.xml(DD),
+	3. Process the request(using Servlet) and send back the response using a servlet
 
 Rules:
-	• Every class becomes a servlet when it extends HttpServlet class
-	• Service method needs request and response objects of HttpServlet.
-	• doGet() if you are sure that you are working with getting the values from the browser and doPost() if you want to submit the data to the browser.
+	1. Every class becomes a servlet when it extends HttpServlet class
+	2. Service method needs request and response objects of HttpServlet.
+	3. doGet() if you are sure that you are working with getting the values from the browser and doPost() if you want to submit the data to the browser.
 
 Lifecycle:
-	• Init()
-	• Service() - we have doGet() and doPost() which has reference to request and response objects of the HttpServlet interface from the tomcat, tomcat provides the objects to you.
-	• Destroy()
+	1. Init()
+	2. Service() - we have doGet() and doPost() which has reference to request and response objects of the HttpServlet interface from the tomcat, tomcat provides the objects to you.
+	3. Destroy()
   
 Calling a Servlet inside a Servlet:
-	• Map the new servlet using those 4 tags in web.xml
-	• Use setAttribute to set the key as "SomeValue" and the value as sum, which is used to add those numbers
-	• Use the url pattern to get the RequestDispatcher object using RequestDispatcher interface and request body
-	• Forward the RequestDispatcher object.
-	• Now, get the attribute in doPost() of new servlet and type cast it. Use a new variable to square the value and print
+	1. Map the new servlet using those 4 tags in web.xml
+	2. Use setAttribute to set the key as "SomeValue" and the value as sum, which is used to add those numbers
+	3. Use the url pattern to get the RequestDispatcher object using RequestDispatcher interface and request body
+	4. Forward the RequestDispatcher object.
+	5. Now, get the attribute in doPost() of new servlet and type cast it. Use a new variable to square the value and print
 
 	• If you want to call a servlet from a servlet ,but you want the client to know, then you must use sendRedirect(), The payment system works in that way which works on session management.
 	• In the 1st servlet, mention the URL re-writing as response.sendRedirect("servletURLmap?variable="+variable);
 	• In the 2nd servlet, use request to get the parameter of that variable and square, print it.
 
 Session Management:
-	• Using HttpSession and Cookies we can do session management
-	• Session objects can be used to maintain the session using the HttpSession object and to setAttributes with a key and value, redirect the response to another servlet.
-	• Get both the atrributes and print it.
+	1. Using HttpSession and Cookies we can do session management
+	2. Session objects can be used to maintain the session using the HttpSession object and to setAttributes with a key and value, redirect the response to another servlet.
+	3. Get both the atrributes and print it.
 
 	• Cookies are stored as cache to recognize the old user, we can create a cookie object by instantiating Cookie.
 	• Then addCookie as a response to the browser and redirect it to another servlet
