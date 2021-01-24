@@ -31,7 +31,7 @@ public class NameFilter implements Filter {
 		
 		int id = Integer.parseInt(req.getParameter("id"));
 		
-		if(id>1 ||id ==0) {
+		if(id>0) {
 		System.out.println("Valid Id : " + id);
 		chain.doFilter(request, response);
 		}else {
