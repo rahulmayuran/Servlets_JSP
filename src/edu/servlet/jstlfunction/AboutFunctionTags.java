@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 @WebServlet("/funct")
@@ -16,16 +17,16 @@ public class AboutFunctionTags extends HttpServlet {
        
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		doPost(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int id = Integer.parseInt(request.getParameter("id"));
+		HttpSession session = request.getSession();
 		
 		String name = request.getParameter("name");
-		request.setAttribute("name", name);
+		session.setAttribute("name", name);
 		
 		RequestDispatcher rdisp = request.getRequestDispatcher("JSTLfunction.jsp");
 		rdisp.forward(request, response);

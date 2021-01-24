@@ -17,6 +17,20 @@ length, checking the index of fragment and much more -->
 
 <h1>Playing with Function tags</h1>
 
+<%
+	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate ");
+	response.setHeader("Expires", "5");
+	
+	if(session.getAttribute("name") == null){
+		response.sendRedirect("welcome.jsp");
+	}
+
+%>
+
+<form action = "logout">
+<button type="submit" value="Logout">Logout</button>
+</form>
+
 <div class="input-section">
 
 <table>
