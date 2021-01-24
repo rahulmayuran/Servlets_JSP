@@ -1,0 +1,88 @@
+About Servlets
+1. Servlet is a class that handles request , processes them and sends a response 
+2. It will collect inputs from user through HTML, query records and create web pages dynamically
+3. We can have multiple servlet instance 
+
+Steps
+1. Client(user) hits a button, request goes to server.
+2. Server needs to accept it using web.xml(DD),
+3. Process the request(using Servlet) and send back the response using a servlet
+
+Rules
+1. Every class becomes a servlet when it extends HttpServlet class
+2. Service method needs request and response objects of HttpServlet.
+3. doGet() if you are sure that you are working with getting the values from the browser and doPost() if you want to submit the data to the browser.
+
+Lifecycle
+1. Init()
+2. Service() - we have doGet() and doPost() which has reference to request and response objects of the HttpServlet interface from the tomcat, tomcat provides the objects to you.
+3. Destroy()
+  
+Calling a Servlet inside a Servlet:
+
+1. Map the new servlet using those 4 tags in web.xml
+2. Use setAttribute to set the key as "SomeValue" and the value as sum, which is used to add those numbers
+3. Use the url pattern to get the RequestDispatcher object using RequestDispatcher interface and request body
+4. Forward the RequestDispatcher object.
+5. Now, get the attribute in doPost() of new servlet and type cast it. Use a new variable to square the value and print
+
+• If you want to call a servlet from a servlet ,but you want the client to know, then you must use sendRedirect(), The payment system works in that way which works on session management.
+• In the 1st servlet, mention the URL re-writing as response.sendRedirect("servletURLmap?variable="+variable);
+• In the 2nd servlet, use request to get the parameter of that variable and square, print it.
+
+Session Management:
+1. Using HttpSession and Cookies we can do session management
+2. Session objects can be used to maintain the session using the HttpSession object and to setAttributes with a key and value, redirect the response to another servlet.
+3. Get both the atrributes and print it.
+
+4. Cookies are stored as cache to recognize the old user, we can create a cookie object by instantiating Cookie.
+5. Then addCookie as a response to the browser and redirect it to another servlet
+6. In this servlet, use getCookies() method from request object to fetch the cookies. Print them.
+
+ServletContext and ServletConfig
+1. ServletContext is used to set initial configuration values that applies to all the servlets and can be used to call the values that are set in web.xml inside the <context-param> tags which has the <param-name> and <param-value>
+2. Instantiate the ServletContext interface and assign it to getServletContext(); . Now you can use getInitParameter('<param-name>') and pass the name. print it.
+3. The same applies for ServletConfig, but it should be called for every servlet , which calls the data from <init-param> which has <param-name> and <param-value>. Instantiate ServletConfig interface and use it.
+
+JSP- Has implicit objects
+1. It doesn't need instantiation of HttpRequest, HttpServletResponse, PageContext(To define session scope and that refers to the current page to set, get values), HttpSession, ServletContext and ServletConfig
+2. Java server pages will help you to write the java code inside HTML, as you call a servlet from a form action using "square" and use @WebServlet("/square") to map it. In the same way, we use "square.jsp" in form action
+3. The expression tags <%= %> that we use in the JSP will get converted to a servlet class by tomcat, As tomcat is a servlet container that runs only servlets. These expression tags goes inside service method.
+4. But the declarative tags <%! %> will be out of service, which is normally used for initializing the parameters. The opposite of this tag is <% %> scriptlet tag which gets converted to service method in servlet and run by tomcat.
+5. The directive tags are for imports, we have @page, @include and @taglib
+6. <%@page import="java.util.Date" %> will be converted to import statements in the servlet and will be run by Tomcat. apart from import, we have extends, isThreadSafe, autoFlush, isErrorPage,session and many more.
+7. <%@include file="any.jsp"%> to include another jsp in current JSP, for example if you have a JSP that has a calculated result and want to add it to this JSP.
+8. <%@taglib uri="website" prefix="any letter"%> to work with tags and library of tags which are external , like JSTL and springframework.
+	
+To handle exceptions in JSP
+1 We can use try and catch block as we use in Servlets in the JSP too, But it's better to forward to error.jsp. So we use errorPage and isErrorPage attributes respectively.
+	
+For JSTL Tags
+
+->To use core and sql tags, you need jstl 1.2 jar file added to lib folder and to the build path.
+->To connect the SSMS database, Create a Database and a table along with an authenticated user, Then use sqljdbc4-2.0.jar > lib > build path, Then inside the JSP, use the taglib to set prefix as sql and uri that points to jsp/jstl/sql and , 
+->set the datasource using 
+
+<sql:setDataSource var="db" 
+driver="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+url="jdbc:sqlserver://localhost:1433;databaseName=ServletJSTLTagTest" 
+user="jstl" 
+password="jstl"/>
+
+-> when you want to do DML operations, then you have to refer the Datasource variable
+<sql:update dataSource="${db}" var="anyVar">
+Update dbo.JSTLEmployee set age=37 where name='Navin'
+</sql:update>
+
+-> When you want to do DQL operations, then also refer to the datasource variable
+<sql:query var="resultset" dataSource="${db}" > 
+Select * from dbo.JSTLEmployee
+</sql:query>
+
+-> To display it in the UI, you need to iterate the rows of the resultset which is used in DQL operation using ${resultset.rows}
+and use a variable to traverse through the columns of the DB like 
+<c:forEach items="${resultset.rows}" var="employees">
+<c:out value="${employees.name}"/>
+<c:out value="${employees.age}"/>
+<c:out value="${employees.role}"/>
+</c:forEach>
