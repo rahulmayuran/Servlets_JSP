@@ -3,6 +3,7 @@
 /*.project
 /.settings
 /*.springBeans
+/build
 
 # Compiled class file
 *.class
